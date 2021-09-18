@@ -1,0 +1,57 @@
+{% extends "html\basic.html" %}
+
+{% block title %}
+Contact Us
+{% endblock title %}
+
+{% block css %}
+.required {
+  color:red; 
+  font-weight:bold
+} 
+.human {margin: 0 0 0 12px}
+h1{ 
+  text-shadow: 2px 2px red; 
+}
+{% endblock css %}
+
+{% block body %}
+
+
+
+ <div class="container" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; color: aliceblue;">
+    <div class="row">
+        <h1 class="diplay-1">
+            Contact Us
+        </h1>
+        <div class="col-12">
+            <form action="/project/contactsubmit/" method="POST">
+           {% csrf_token %}
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" class="form-control" placeholder="Email Id" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div id="emailHelp" class="form-text" style="color: rgb(214, 214, 214);">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" placeholder="Name" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                  <label for="contactnumber" class="form-label">Contact Number</label>
+                  <input type="text" maxlength="10" minlength="10" max="10" min="10" class="form-control" placeholder="Contact Number" id="contactnumber" name="contact" aria-describedby="numHelp">
+                  <div id="numHelp" class="form-text" style="color: rgb(214, 214, 214);">We'll never share your Contact number with anyone else.</div>
+                </div>
+                <div class="form-floating mb-3" style="color: black;">
+                  <textarea class="form-control" placeholder="Leave " name="desc" id="floatingTextarea2" style="height: 100px"></textarea>
+                  <label for="floatingTextarea2" class="form-label">Description</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+    </div>
+</div> 
+
+
+
+{% endblock body %}
